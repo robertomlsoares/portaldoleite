@@ -1,16 +1,12 @@
-import java.util.ArrayList;
-import java.util.List;
-
-import models.Dica;
-import models.DicaConselho;
-import models.Disciplina;
-import models.Tema;
-import models.User;
+import models.*;
 import models.dao.GenericDAOImpl;
 import play.Application;
 import play.GlobalSettings;
 import play.Logger;
 import play.db.jpa.JPA;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Global extends GlobalSettings {
 
@@ -147,6 +143,8 @@ public class Global extends GlobalSettings {
 		conselhoImpl.setTema(implementacao);
 		conselhoImpl.setUser(users.get(4).getLogin());
 		leda.addTema(implementacao);
+
+
 
 		return leda;
 	}
