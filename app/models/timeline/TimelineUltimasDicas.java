@@ -1,4 +1,4 @@
-package controllers.timeline;
+package models.timeline;
 
 import java.util.ArrayList;
 import java.util.HashMap;

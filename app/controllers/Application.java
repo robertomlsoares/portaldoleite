@@ -4,8 +4,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
-import controllers.timeline.Timeline;
-import controllers.timeline.TimelineUltimasDicas;
+import models.timeline.TimelineStrategy;
+import models.timeline.TimelineUltimasDicas;
 import models.Dica;
 import models.DicaAssunto;
 import models.DicaConselho;
