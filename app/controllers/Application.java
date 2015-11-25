@@ -35,6 +35,7 @@ public class Application extends Controller {
 			timeline = new TimelineUltimasDicas();
 		}
 		Map<Disciplina, List<Dica>> dicasPorDisciplinas = timeline.getDicas(disciplinas);
+
 		return ok(views.html.index.render(disciplinas, dicasPorDisciplinas));
 	}
 
