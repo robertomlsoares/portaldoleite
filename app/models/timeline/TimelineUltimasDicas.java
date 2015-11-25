@@ -9,7 +9,7 @@ import models.Dica;
 import models.Disciplina;
 import models.Tema;
 
-public class TimelineUltimasDicas implements Timeline {
+public class TimelineUltimasDicas implements TimelineStrategy {
 
 	@Override
 	public Map<Disciplina, List<Dica>> getDicas(List<Disciplina> disciplinas) {
