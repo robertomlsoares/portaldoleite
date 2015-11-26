@@ -4,7 +4,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
-import models.timeline.TimelineUltimasDicas;
 import models.Dica;
 import models.DicaAssunto;
 import models.DicaConselho;
@@ -24,18 +23,13 @@ import play.mvc.Security;
 public class Application extends Controller {
 	private static final int MAX_DENUNCIAS = 3;
 	private static GenericDAOImpl dao = new GenericDAOImpl();
-	private static Timeline timeline;
 
 	@Transactional
 	@Security.Authenticated(Secured.class)
 	public static Result index() {
 		List<Disciplina> disciplinas = dao.findAllByClassName(Disciplina.class.getName());
-		if (timeline == null) {
-			timeline = new TimelineUltimasDicas();
-		}
-		Map<Disciplina, List<Dica>> dicasPorDisciplinas = timeline.getDicas(disciplinas);
 
-		return ok(views.html.index.render(disciplinas, dicasPorDisciplinas));
+		return ok(views.html.index.render(disciplinas));
 	}
 
 	@Transactional
@@ -397,13 +391,5 @@ public class Application extends Controller {
 		dao.flush();
 
 		return redirect(routes.Application.disciplina(metaDica.getDisciplina().getId()));
-	}
-
-	public static Timeline getTimeline() {
-		return timeline;
-	}
-
-	public static void setTimeline(Timeline timeline) {
-		Application.timeline = timeline;
 	}
 }
