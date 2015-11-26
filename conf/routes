@@ -4,6 +4,8 @@
 
 # Home page
 GET     /                           	 controllers.Application.index()
+GET		/concordancias					 controllers.Application.indexMaisConcordancias()
+GET		/discordancias					 controllers.Application.indexMaisDiscordancias()
 GET     /logout							 controllers.Login.logout()
 
 # Login

@@ -13,6 +13,8 @@ import models.Disciplina;
 import models.MetaDica;
 import models.Tema;
 import models.dao.GenericDAOImpl;
+import models.timeline.TimelineMaisConcordancias;
+import models.timeline.TimelineMaisDiscordancias;
 import play.data.DynamicForm;
 import play.data.Form;
 import play.db.jpa.Transactional;
@@ -28,6 +30,34 @@ public class Application extends Controller {
 	@Security.Authenticated(Secured.class)
 	public static Result index() {
 		List<Disciplina> disciplinas = dao.findAllByClassName(Disciplina.class.getName());
+
+		return ok(views.html.index.render(disciplinas));
+	}
+
+	@Transactional
+	@Security.Authenticated(Secured.class)
+	public static Result indexMaisConcordancias() {
+		List<Disciplina> disciplinas = dao.findAllByClassName(Disciplina.class.getName());
+
+		for (Disciplina disciplina : disciplinas) {
+			for (Tema tema : disciplina.getTemas()) {
+				tema.setTimeline(new TimelineMaisConcordancias());
+			}
+		}
+
+		return ok(views.html.index.render(disciplinas));
+	}
+
+	@Transactional
+	@Security.Authenticated(Secured.class)
+	public static Result indexMaisDiscordancias() {
+		List<Disciplina> disciplinas = dao.findAllByClassName(Disciplina.class.getName());
+
+		for (Disciplina disciplina : disciplinas) {
+			for (Tema tema : disciplina.getTemas()) {
+				tema.setTimeline(new TimelineMaisDiscordancias());
+			}
+		}
 
 		return ok(views.html.index.render(disciplinas));
 	}
