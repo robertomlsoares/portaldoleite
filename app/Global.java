@@ -68,8 +68,8 @@ public class Global extends GlobalSettings {
 		si1.addTema(new Tema("GoF"));
 		si1.addTema(new Tema("Arquitetura"));
 		si1.addTema(new Tema("Play"));
-
 		Tema javascript = new Tema("JavaScript");
+		javascript.setDisciplina(si1);
 		Dica conselhoJs = new DicaConselho("É uma boa usar AngularJS.");
 		conselhoJs.incrementaConcordancias();
 		conselhoJs.incrementaConcordancias();
@@ -87,6 +87,7 @@ public class Global extends GlobalSettings {
 		si1.addTema(new Tema("Minitestes"));
 
 		Tema projeto = new Tema("Projeto");
+		projeto.setDisciplina(si1);
 		Dica conselhoProjeto = new DicaConselho("Coloque seu projeto no Heroku o quanto antes!");
 		conselhoProjeto.incrementaConcordancias();
 		conselhoProjeto.addUsuarioQueVotou(users.get(3).getLogin());
@@ -109,6 +110,7 @@ public class Global extends GlobalSettings {
 		eda.addTema(new Tema("Algoritmos"));
 
 		Tema estruturas = new Tema("Estrutura de Dados");
+		estruturas.setDisciplina(eda);
 		Dica conselhoMonitor = new DicaConselho("Os monitores ajudam muito.");
 		conselhoMonitor.incrementaConcordancias();
 		conselhoMonitor.addUsuarioQueVotou(users.get(6).getLogin());
@@ -130,6 +132,7 @@ public class Global extends GlobalSettings {
 		eda.addTema(new Tema("Árvores"));
 
 		Tema livros = new Tema("Livros");
+		livros.setDisciplina(eda);
 		Dica conselhoLivro = new DicaConselho("Leia os capítulos do livro do Cormen que o professor indicar.");
 		conselhoLivro.incrementaConcordancias();
 		conselhoLivro.addUsuarioQueVotou(users.get(9).getLogin());
@@ -154,6 +157,7 @@ public class Global extends GlobalSettings {
 		Disciplina leda = new Disciplina("Laboratório de Estrutura de Dados e Algoritmos");
 
 		Tema implementacao = new Tema("Implementação");
+		implementacao.setDisciplina(leda);
 		Dica conselhoImpl = new DicaConselho("Faça todos os laboratórios sem colar código.");
 		conselhoImpl.incrementaConcordancias();
 		conselhoImpl.addUsuarioQueVotou(users.get(2).getLogin());
