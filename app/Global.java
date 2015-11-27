@@ -72,6 +72,7 @@ public class Global extends GlobalSettings {
 		Tema javascript = new Tema("JavaScript");
 		Dica conselhoJs = new DicaConselho("É uma boa usar AngularJS.");
 		conselhoJs.incrementaConcordancias();
+		conselhoJs.incrementaConcordancias();
 		conselhoJs.addUsuarioQueVotou(users.get(0).getLogin());
 		conselhoJs.incrementaDiscordancias();
 		conselhoJs.addUsuarioQueVotou(users.get(1).getLogin());
@@ -90,6 +91,8 @@ public class Global extends GlobalSettings {
 		conselhoProjeto.incrementaConcordancias();
 		conselhoProjeto.addUsuarioQueVotou(users.get(3).getLogin());
 		conselhoProjeto.incrementaDiscordancias();
+		conselhoProjeto.incrementaDiscordancias();
+
 		conselhoProjeto.addUsuarioQueVotou(users.get(4).getLogin());
 		projeto.addDica(conselhoProjeto);
 		conselhoProjeto.setTema(projeto);
