@@ -20,9 +20,6 @@ import javax.persistence.MapKeyColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Transient;
 
-import models.timeline.TimelineStrategy;
-import models.timeline.TimelineUltimasDicas;
-
 @Entity(name = "Tema")
 public class Tema {
 

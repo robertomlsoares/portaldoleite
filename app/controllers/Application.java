@@ -1,26 +1,18 @@
 package controllers;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
-
-import models.Dica;
-import models.DicaAssunto;
-import models.DicaConselho;
-import models.DicaDisciplina;
-import models.DicaMaterial;
-import models.Disciplina;
-import models.MetaDica;
-import models.Tema;
+import models.*;
 import models.dao.GenericDAOImpl;
-import models.timeline.TimelineMaisConcordancias;
-import models.timeline.TimelineMaisDiscordancias;
 import play.data.DynamicForm;
 import play.data.Form;
 import play.db.jpa.Transactional;
 import play.mvc.Controller;
 import play.mvc.Result;
 import play.mvc.Security;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
 
 public class Application extends Controller {
 	private static final int MAX_DENUNCIAS = 3;
@@ -30,36 +22,50 @@ public class Application extends Controller {
 	@Security.Authenticated(Secured.class)
 	public static Result index() {
 		List<Disciplina> disciplinas = dao.findAllByClassName(Disciplina.class.getName());
-
-		return ok(views.html.index.render(disciplinas));
+		TimelineStrategy timelineUltimasDicas = new TimelineUltimasDicas();
+		List<Dica> dicasUltimas = new ArrayList<Dica>();
+		for (Disciplina disciplina : disciplinas) {
+			for (Tema tema : disciplina.getTemas()) {
+				for (Dica dica : tema.getDicas()){
+					dicasUltimas.add(dica);
+				}
+			}
+		}
+		return ok(views.html.index.render(disciplinas,timelineUltimasDicas,dicasUltimas));
 	}
 
 	@Transactional
 	@Security.Authenticated(Secured.class)
 	public static Result indexMaisConcordancias() {
 		List<Disciplina> disciplinas = dao.findAllByClassName(Disciplina.class.getName());
-
+		TimelineStrategy timelineMaisConcordancias = new TimelineMaisConcordancias();
+		List<Dica> dicasMaisConcordancias = new ArrayList<Dica>();
 		for (Disciplina disciplina : disciplinas) {
 			for (Tema tema : disciplina.getTemas()) {
-				tema.setTimeline(new TimelineMaisConcordancias());
+				for (Dica dica : tema.getDicas()){
+					dicasMaisConcordancias.add(dica);
+				}
 			}
 		}
 
-		return ok(views.html.index.render(disciplinas));
+		return ok(views.html.index.render(disciplinas, timelineMaisConcordancias,dicasMaisConcordancias));
 	}
 
 	@Transactional
 	@Security.Authenticated(Secured.class)
 	public static Result indexMaisDiscordancias() {
 		List<Disciplina> disciplinas = dao.findAllByClassName(Disciplina.class.getName());
-
+		TimelineStrategy timelineMaisDisconcordancias = new TimelineMaisDiscordancias();
+		List<Dica> dicasMaisDiscordancias = new ArrayList<Dica>();
 		for (Disciplina disciplina : disciplinas) {
 			for (Tema tema : disciplina.getTemas()) {
-				tema.setTimeline(new TimelineMaisDiscordancias());
+				for (Dica dica : tema.getDicas()){
+					dicasMaisDiscordancias.add(dica);
+				}
 			}
 		}
 
-		return ok(views.html.index.render(disciplinas));
+		return ok(views.html.index.render(disciplinas, timelineMaisDisconcordancias,dicasMaisDiscordancias));
 	}
 
 	@Transactional

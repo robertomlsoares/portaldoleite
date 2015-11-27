@@ -94,6 +94,8 @@ public class Global extends GlobalSettings {
 		conselhoProjeto.incrementaDiscordancias();
 
 		conselhoProjeto.addUsuarioQueVotou(users.get(4).getLogin());
+		conselhoProjeto.incrementaDiscordancias();
+		conselhoProjeto.addUsuarioQueVotou(users.get(5).getLogin());
 		projeto.addDica(conselhoProjeto);
 		conselhoProjeto.setTema(projeto);
 		conselhoProjeto.setUser(users.get(5).getLogin());
@@ -112,6 +114,14 @@ public class Global extends GlobalSettings {
 		conselhoMonitor.addUsuarioQueVotou(users.get(6).getLogin());
 		conselhoMonitor.incrementaDiscordancias();
 		conselhoMonitor.addUsuarioQueVotou(users.get(7).getLogin());
+		conselhoMonitor.incrementaDiscordancias();
+		conselhoMonitor.addUsuarioQueVotou(users.get(5).getLogin());
+		conselhoMonitor.incrementaDiscordancias();
+		conselhoMonitor.addUsuarioQueVotou(users.get(4).getLogin());
+		conselhoMonitor.incrementaDiscordancias();
+		conselhoMonitor.addUsuarioQueVotou(users.get(3).getLogin());
+		conselhoMonitor.incrementaDiscordancias();
+		conselhoMonitor.addUsuarioQueVotou(users.get(2).getLogin());
 		estruturas.addDica(conselhoMonitor);
 		conselhoMonitor.setTema(estruturas);
 		conselhoMonitor.setUser(users.get(8).getLogin());
@@ -125,6 +135,13 @@ public class Global extends GlobalSettings {
 		conselhoLivro.addUsuarioQueVotou(users.get(9).getLogin());
 		conselhoLivro.incrementaDiscordancias();
 		conselhoLivro.addUsuarioQueVotou(users.get(0).getLogin());
+		conselhoLivro.incrementaDiscordancias();
+		conselhoLivro.addUsuarioQueVotou(users.get(1).getLogin());
+		conselhoLivro.incrementaDiscordancias();
+		conselhoLivro.addUsuarioQueVotou(users.get(2).getLogin());
+		conselhoLivro.incrementaDiscordancias();
+		conselhoLivro.addUsuarioQueVotou(users.get(3).getLogin());
+		conselhoLivro.incrementaDiscordancias();
 		estruturas.addDica(conselhoLivro);
 		conselhoLivro.setTema(livros);
 		conselhoLivro.setUser(users.get(1).getLogin());
@@ -142,6 +159,18 @@ public class Global extends GlobalSettings {
 		conselhoImpl.addUsuarioQueVotou(users.get(2).getLogin());
 		conselhoImpl.incrementaDiscordancias();
 		conselhoImpl.addUsuarioQueVotou(users.get(3).getLogin());
+		conselhoImpl.incrementaDiscordancias();
+		conselhoImpl.addUsuarioQueVotou(users.get(5).getLogin());
+		conselhoImpl.incrementaDiscordancias();
+		conselhoImpl.addUsuarioQueVotou(users.get(6).getLogin());
+		conselhoImpl.incrementaDiscordancias();
+		conselhoImpl.addUsuarioQueVotou(users.get(1).getLogin());
+		conselhoImpl.incrementaDiscordancias();
+		conselhoImpl.addUsuarioQueVotou(users.get(0).getLogin());
+		conselhoImpl.incrementaDiscordancias();
+		conselhoImpl.addUsuarioQueVotou(users.get(7).getLogin());
+		conselhoImpl.incrementaDiscordancias();
+		conselhoImpl.addUsuarioQueVotou(users.get(8).getLogin());
 		implementacao.addDica(conselhoImpl);
 		conselhoImpl.setTema(implementacao);
 		conselhoImpl.setUser(users.get(4).getLogin());
